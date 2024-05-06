@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php if(!isset($_SESSION["email"]))
+    <?php if(!isset($_SESSION["email_or_username"]))
     {
     ?>
 
@@ -21,7 +21,7 @@
    
     else
     {
-        echo "Xin chào:". $_SESSION['email'];
+        echo "Xin chào:". $_SESSION['email_or_username'];
         
         echo "<a href='xllogout.php'>logout</a><br>";
     }

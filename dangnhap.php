@@ -1,6 +1,3 @@
-<?php 
-session_start(); 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,13 +25,14 @@ session_start();
   }
 </style>
 <body>
+  <?php session_start(); ?>
 <div class="container">
   <h2>Đăng nhập</h2>
   <form action="xulydangnhap.php" method="POST">
   <input type="hidden" name="captcha-rand" value="<?php echo $_SESSION["captcha_code"]; ?>"> <!-- để lấy mã captcha ngẫu nhiên và truyền vào một input ẩn để gửi đi-->
     <div class="form-group">
-      <label for="email">Email: </label>
-      <input type="email" class="form-control" id="email" placeholder="Điền tên tài khoản" name="email">
+      <label for="email_or_username">Email hoặc tài khoản: </label>
+      <input type="text" class="form-control" id="email_or_username" placeholder="Điền tên tài khoản" name="email_or_username">
     </div>
     <div class="form-group">
       <label for="pwd">Mật khẩu:</label>
@@ -44,7 +42,7 @@ session_start();
   <div class="col-md-6 form-group">
     <label for="captcha">Captcha:</label>
     <input type="text" class="form-control" id="captcha" placeholder="Nhập Captcha" name="captcha">
-    <input type="hidden" name="captcha_code" value="<?php echo $_SESSION["captcha_code"]; ?>">
+    <input type="hidden" name="captcha_code" value="<?php echo $captcha_code; ?>">
   </div>
   <div class="col-md-6 form-group" >
     <label for="captcha-image">Mã Captcha:</label><br> <!-- Thêm dấu xuống dòng để hình ảnh captcha và phần nhập captcha xuất hiện cùng dòng -->
